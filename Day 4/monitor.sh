@@ -17,9 +17,10 @@ then
 fi
 
 #MEMORY USAGE
-MEM=$(free | grep Mem | awk '{print $3/$2 * 100.0}')
+MEM=$(free | awk '/Mem/ {print ($3/$2)*100}')
+MEM_INT=${MEM%.*}
 echo "Memory Usage: $MEM%" >> "$LOG_FILE"
-if (( $(echo "$MEM > $MEMORY_Threshold" | bc -l) )); then
+if (( MEM_INT > MEMORY_THRESHOLD )); then
     send_alert "High Memory usage: $MEM%"
 fi
 

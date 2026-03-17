@@ -4,7 +4,7 @@ A lightweight, production-style system monitoring tool written in Bash that trac
 
 ---
 
-## 📌 Features
+## 📌 Feature
 
 * CPU usage monitoring
 * Memory usage tracking
